@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Platforme;
 use App\Repository\FilmRepository;
 use App\Repository\PlatformeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,7 +22,7 @@ final class PlatformeController extends AbstractController
     }
 
     #[Route('/platformes/{id}', name: 'app_platforme_show')]
-    public function show(FilmRepository $filmsRepository, PlatformeRepository $platforme): Response
+    public function show(FilmRepository $filmsRepository, Platforme $platforme): Response
     {
         $films = $filmsRepository->findByPlatforme($platforme);
 
