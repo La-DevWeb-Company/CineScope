@@ -4,9 +4,13 @@ namespace App\Controller\Admin;
 
 use App\Entity\Platforme;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
+use Symfony\Component\DomCrawler\Image;
 
 class PlatformeCrudController extends AbstractCrudController
 {
@@ -15,14 +19,21 @@ class PlatformeCrudController extends AbstractCrudController
         return Platforme::class;
     }
 
-    /*
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->hideOnForm(),
+            TextField::new('name'),
+            UrlField::new('URL'),
+            ImageField::new('Logo')
+                ->setUploadDir('public/uploads/logos')
+                ->setBasePath('uploads/logos'),
+            AssociationField::new('films')
+                ->setFormTypeOptions([
+                    'by_reference' => false
+                ])
+
         ];
     }
-    */
 }

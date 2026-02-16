@@ -18,3 +18,7 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+###< Uploded Avatar & Logos
+/public/uploads/
+###> Uploded Avatar & Logos

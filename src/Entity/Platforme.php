@@ -105,6 +105,6 @@ class Platforme
 
     public function __toString(): string
     {
-        return $this->name; // ou le champ que tu veux afficher
+        return $this->name;
     }
 }
